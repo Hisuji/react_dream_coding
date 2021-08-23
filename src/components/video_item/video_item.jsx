@@ -14,8 +14,9 @@ import styles from './video_item.module.css'
 // )
 
 // props 안에 있는 video를 바로 받아서 사용 -> { }
-const VideoItem = ({ video }) => (
-  <li className={styles.container}>
+const VideoItem = ({ video, onVideoClick }) => (
+  // 이벤트가 발생하면 onVideoClick 함수에 video 전달
+  <li className={styles.container} onClick={() => onVideoClick(video)}>
     <div className={styles.video}>
       <img
         className={styles.thumbnail}
