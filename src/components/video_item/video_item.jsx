@@ -14,21 +14,27 @@ import styles from './video_item.module.css'
 // )
 
 // props 안에 있는 video를 바로 받아서 사용 -> { }
-const VideoItem = ({ video, onVideoClick }) => (
-  // 이벤트가 발생하면 onVideoClick 함수에 video 전달
-  <li className={styles.container} onClick={() => onVideoClick(video)}>
-    <div className={styles.video}>
-      <img
-        className={styles.thumbnail}
-        src={video.thumbnails.medium.url}
-        alt="video thumbnail"
-      />
-      <div className={styles.metadata}>
-        <p className={styles.title}>{video.title}</p>
-        <p className={styles.channel}>{video.channelTitle}</p>
+const VideoItem = ({ videoId, video, onVideoClick, display }) => {
+  const displayType = display === 'list' ? styles.list : styles.gird
+  return (
+    // 이벤트가 발생하면 onVideoClick 함수에 video 전달
+    <li
+      className={`${styles.container} ${displayType}`}
+      onClick={() => onVideoClick(video, videoId)}
+    >
+      <div className={styles.video}>
+        <img
+          className={styles.thumbnail}
+          src={video.thumbnails.medium.url}
+          alt="video thumbnail"
+        />
+        <div className={styles.metadata}>
+          <p className={styles.title}>{video.title}</p>
+          <p className={styles.channel}>{video.channelTitle}</p>
+        </div>
       </div>
-    </div>
-  </li>
-)
+    </li>
+  )
+}
 
 export default VideoItem

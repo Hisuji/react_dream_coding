@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
+import React, { memo, useRef } from 'react'
 import styles from './search_header.module.css'
-
-const SearchHeader = ({ onSearch }) => {
+// memo : 전달되는 props가 변경 되지 않으면 re-render되지 않고 props가 변경되면 re-render된다.
+const SearchHeader = memo(({ onSearch }) => {
   const inputRef = useRef()
 
   const handleSearch = () => {
@@ -40,7 +40,7 @@ const SearchHeader = ({ onSearch }) => {
       </button>
     </header>
   )
-}
+})
 
 SearchHeader.propTypes = {}
 
