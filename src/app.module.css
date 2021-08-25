@@ -2,6 +2,13 @@
   max-width: 80rem;
 }
 
+/* 브라우저가 max-width 값 이하인 경우에만 적용 */
+@media (max-width: 50rem) {
+  .content {
+    flex-direction: column;
+  }
+}
+
 .content {
   display: flex;
 }

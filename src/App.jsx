@@ -24,6 +24,7 @@ function App({ youtube }) {
       youtube
         .search(query) //
         .then((items) => setVideos(items))
+      setSelectedVideo(null) // VideoDatail 안 보이게 설정
     },
     [youtube]
   )
